@@ -1,7 +1,13 @@
 "use client";
 
 import React, { useEffect, useRef } from "react";
-import { circOut, motion, useInView, useMotionValue, useSpring } from "framer-motion";
+import {
+  circOut,
+  motion,
+  useInView,
+  useMotionValue,
+  useSpring,
+} from "framer-motion";
 import { AnimatedGradientCanvas } from "./WorkflowSection";
 
 const metrics = [
@@ -60,7 +66,7 @@ const metrics = [
         opacity: 1,
         scaleX: 1,
         originX: 0,
-        transition: { duration: 0.6, ease: circOut }, 
+        transition: { duration: 0.6, ease: circOut },
       },
     },
   },
@@ -70,23 +76,36 @@ const cardVariants = [
   // 1. Specialist Support: Smooth Fade + Subtle Scale (Stability)
   {
     hidden: { opacity: 0, scale: 0.95 },
-    show: { opacity: 1, scale: 1, transition: { duration: 0.8, ease: "easeOut" } }
+    show: {
+      opacity: 1,
+      scale: 1,
+      transition: { duration: 0.8, ease: "easeOut" },
+    },
   },
   // 2. Diagnostic Accuracy: Horizontal Slide (Precision/Alignment)
   {
     hidden: { opacity: 0, x: -50 },
-    show: { opacity: 1, x: 0, transition: { duration: 0.7, ease: "circOut" } }
+    show: { opacity: 1, x: 0, transition: { duration: 0.7, ease: "circOut" } },
   },
   // 3. Monthly Interpretations: Vertical Pop (Growth/Scale)
   {
     hidden: { opacity: 0, y: 40 },
-    show: { opacity: 1, y: 0, transition: { duration: 0.6, type: "spring", bounce: 0.4 } }
+    show: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, type: "spring", bounce: 0.4 },
+    },
   },
   // 4. Critical Turnaround: Rapid Wipe (Speed)
   {
     hidden: { opacity: 0, scaleX: 0, originX: 1 },
-    show: { opacity: 1, scaleX: 1, originX: 1, transition: { duration: 0.5, ease: "anticipate" } }
-  }
+    show: {
+      opacity: 1,
+      scaleX: 1,
+      originX: 1,
+      transition: { duration: 0.5, ease: "anticipate" },
+    },
+  },
 ];
 function AnimatedCounter({
   value,
@@ -152,7 +171,7 @@ export default function MetricsSection() {
       </div>
 
       <div className="max-w-7xl mx-auto relative z-10">
-        <div className="flex flex-col md:flex-row justify-between items-end gap-8 mb-20">
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-8 mb-20">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -163,11 +182,14 @@ export default function MetricsSection() {
             <h2 className="text-blue-600 font-bold tracking-widest text-sm uppercase mb-4">
               Operational Excellence
             </h2>
-            <motion.h3 initial={{ opacity: 0 }}
-            
-            transition={{ delay: 0.3 }}
-            whileInView={{ opacity: 1 }} className="text-4xl md:text-5xl font-semibold text-stone-900 leading-tight">
-              <span className="gradient-text">Clinical Precision</span> <br />
+            <motion.h3
+              initial={{ opacity: 0 }}
+              transition={{ delay: 0.3 }}
+              whileInView={{ opacity: 1 }}
+              className="text-4xl md:text-5xl font-semibold text-stone-900 leading-tight"
+            >
+              Clinical
+              <span className="gradient-text"> Precision</span> <br />
               <span className="text-stone-400 font-light italic text-3xl md:text-4xl">
                 at Global Scale.
               </span>
@@ -185,62 +207,62 @@ export default function MetricsSection() {
           </motion.p>
         </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-  {metrics.map((metric, index) => (
-    <motion.div
-      key={index}
-      // 1. Use the label strings from your cardVariants object
-      variants={metric.variants}
-      initial="hidden"
-      whileInView="show"
-      viewport={{ once: true, margin: "-50px" }}
-      // 2. Keep hover logic clean
-      whileHover={{ 
-        y: -10,
-        transition: { duration: 0.3, ease: "easeOut" }
-      }}
-      className="group relative bg-white border border-stone-100 p-8 rounded-[2rem] transition-all duration-500 hover:shadow-[0_30px_60px_-15px_rgba(0,0,0,0.08)] overflow-hidden"
-    >
-      {/* 3. Hover Background Tint (the linear gradient you added) */}
-      <div
-        className="absolute inset-0 opacity-0 group-hover:opacity-[0.03] transition-opacity duration-700 pointer-events-none"
-        style={{
-          background: "linear-gradient(100deg, #01aed8, #ff4c4c)",
-        }}
-      />
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {metrics.map((metric, index) => (
+            <motion.div
+              key={index}
+              // 1. Use the label strings from your cardVariants object
+              variants={metric.variants}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, margin: "-50px" }}
+              // 2. Keep hover logic clean
+              whileHover={{
+                y: -10,
+                transition: { duration: 0.3, ease: "easeOut" },
+              }}
+              className="group relative bg-white border border-stone-100 p-8 rounded-[2rem] transition-all duration-500 hover:shadow-[0_30px_60px_-15px_rgba(0,0,0,0.08)] overflow-hidden"
+            >
+              {/* 3. Hover Background Tint (the linear gradient you added) */}
+              <div
+                className="absolute inset-0 opacity-0 group-hover:opacity-[0.03] transition-opacity duration-700 pointer-events-none"
+                style={{
+                  background: "linear-gradient(100deg, #01aed8, #ff4c4c)",
+                }}
+              />
 
-      {/* 4. Top Accent Line - Added a 'Scale' transition for extra polish */}
-      <div className="absolute top-0 left-0 w-full h-[4px] bg-gradient-to-r from-[#01aed8] to-[#ff4c4c] origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ease-out" />
+              {/* 4. Top Accent Line - Added a 'Scale' transition for extra polish */}
+              <div className="absolute top-0 left-0 w-full h-[4px] bg-gradient-to-r from-[#01aed8] to-[#ff4c4c] origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ease-out" />
 
-      <div className="relative z-10">
-        <div className="text-5xl font-bold mb-6 flex items-baseline tracking-tighter">
-          <span className="bg-gradient-to-br from-[#01aed8] to-[#ff4c4c] bg-clip-text text-transparent">
-            <AnimatedCounter
-              value={metric.value}
-              decimals={metric.value % 1 !== 0 ? 1 : 0}
-            />
-          </span>
-          
-          <span className="text-stone-300 ml-1 text-2xl font-light group-hover:text-[#ff4c4c] transition-colors duration-300">
-            {metric.suffix}
-          </span>
+              <div className="relative z-10">
+                <div className="text-5xl font-bold mb-6 flex items-baseline tracking-tighter">
+                  <span className="bg-gradient-to-br from-[#01aed8] to-[#ff4c4c] bg-clip-text text-transparent">
+                    <AnimatedCounter
+                      value={metric.value}
+                      decimals={metric.value % 1 !== 0 ? 1 : 0}
+                    />
+                  </span>
+
+                  <span className="text-stone-300 ml-1 text-2xl font-light group-hover:text-[#ff4c4c] transition-colors duration-300">
+                    {metric.suffix}
+                  </span>
+                </div>
+
+                <div>
+                  <h4 className="text-stone-900 font-bold text-lg mb-2 tracking-tight">
+                    {metric.label}
+                  </h4>
+                  <p className="text-stone-500 text-sm leading-relaxed font-medium">
+                    {metric.subtext}
+                  </p>
+                </div>
+              </div>
+
+              {/* 5. Subtle Glow Positioning */}
+              <div className="absolute -bottom-12 -right-12 w-32 h-32 bg-gradient-to-br from-[#01aed8]/10 to-[#ff4c4c]/10 rounded-full blur-3xl group-hover:scale-150 transition-transform duration-700 pointer-events-none" />
+            </motion.div>
+          ))}
         </div>
-
-        <div>
-          <h4 className="text-stone-900 font-bold text-lg mb-2 tracking-tight">
-            {metric.label}
-          </h4>
-          <p className="text-stone-500 text-sm leading-relaxed font-medium">
-            {metric.subtext}
-          </p>
-        </div>
-      </div>
-
-      {/* 5. Subtle Glow Positioning */}
-      <div className="absolute -bottom-12 -right-12 w-32 h-32 bg-gradient-to-br from-[#01aed8]/10 to-[#ff4c4c]/10 rounded-full blur-3xl group-hover:scale-150 transition-transform duration-700 pointer-events-none" />
-    </motion.div>
-  ))}
-</div>
       </div>
     </section>
   );

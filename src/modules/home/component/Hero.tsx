@@ -44,7 +44,7 @@ function Hero() {
   const imageY = useTransform(scrollYProgress, [0, 1], ["0%", "40%"]);
   const textOpacity = useTransform(scrollYProgress, [0, 0.7], [1, 0]);
   return (
-    <section className="h-full w-full py-24 min-h-screen ">
+    <section className="h-full w-full py-24 min-h-scsreen ">
       <div
         ref={heroRef}
         className="flex items-center h-full pt-18 w-full justify-center mx-auto gap-12  flex-col lg:gap-16"
@@ -85,7 +85,7 @@ function Hero() {
             className="flex items-center justify-center"
           >
             <Button className="rounded-full max-w-36 lg:max-w-48 py-5 lg:py-6 w-full cursor-pointer text-md tracking-widest gradient-color">
-              Explore
+              Consult Now
             </Button>
           </motion.div>
         </div>

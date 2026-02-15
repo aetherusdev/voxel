@@ -99,7 +99,7 @@ const features = [
         opacity: 1,
         y: 0,
         rotateX: 0,
-        transition: { duration: 0.8,  ease: [0, 0, 0.2, 1] as const },
+        transition: { duration: 0.8, ease: [0, 0, 0.2, 1] as const },
       },
     },
   },
@@ -129,7 +129,7 @@ const features = [
         opacity: 1,
         x: 0,
         rotateY: 0,
-        transition: { duration: 0.8,  ease: [0, 0, 0.2, 1] as const },
+        transition: { duration: 0.8, ease: [0, 0, 0.2, 1] as const },
       },
     },
   },
@@ -142,7 +142,7 @@ export default function SecuritySection() {
 
       <div className="relative z-10 max-w-7xl mx-auto">
         {/* Header with dynamic gradient underline */}
-        <div className="flex flex-col items-center text-center mb-24">
+        <div className="flex flex-col md:items-center text-start md:text-center mb-24">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}

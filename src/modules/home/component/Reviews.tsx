@@ -60,7 +60,7 @@ function Reviews() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            className="text-center mb-16"
+            className=" text-left md:text-center mb-16"
           >
             <h2 className="text-blue-600 font-bold tracking-[0.2em] uppercase text-xs mb-4">
               Testimonials

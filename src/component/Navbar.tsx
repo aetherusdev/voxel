@@ -9,15 +9,15 @@ import React from "react";
 function Navbar() {
   const items = [
     {
-      label: "Product",
+      label: "Services",
       href: "",
     },
     {
-      label: "Regular classes",
+      label: "About us",
       href: "",
     },
     {
-      label: "online tutorials",
+      label: "Contact us",
       href: "",
     },
     {
