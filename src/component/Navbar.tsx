@@ -1,6 +1,6 @@
 "use client";
 import { Button } from "@/components/ui/button";
-import { Menu } from "lucide-react";
+import { Menu, Phone } from "lucide-react";
 import { motion } from "motion/react";
 import Image from "next/image";
 import Link from "next/link";
@@ -21,7 +21,7 @@ function Navbar() {
       href: "",
     },
     {
-      label: "About us",
+      label: "Demo's",
       href: "",
     },
   ];
@@ -58,12 +58,15 @@ function Navbar() {
         ))}
       </div>
       <div className="hidden md:block">
-        <Button className="rounded-full bg-primary transition-all duration-300 cursor-pointer">
-          Log in
-        </Button>
+        <a href="tel:+18008693572" className="no-underline">
+          <button className="flex items-center gradient-color-2 gap-2 px-6 py-2 rounded-full bg-black text-white font-medium transition-all duration-300 hover:bg-slate-800 hover:shadow-lg active:scale-95 cursor-pointer shadow-md">
+            <Phone size={16} className="fill-white" />
+            <span className="text-sm tracking-tight ">Call Now</span>
+          </button>
+        </a>
       </div>
       <div className="block md:hidden">
-        <Button className=" cursor-pointer rounded-full ">
+        <Button className=" cursor-pointer rounded-full gradient-color-2 ">
           <Menu className="size-4 text-white " />
         </Button>
       </div>

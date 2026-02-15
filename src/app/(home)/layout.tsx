@@ -1,3 +1,4 @@
+import Footer from "@/component/Footer";
 import Navbar from "@/component/Navbar";
 import React from "react";
 // import Navbar from '../component/Navbar'
@@ -9,6 +10,7 @@ function Rootayout({ children }: { children: React.ReactNode }) {
         <Navbar />
       </div>
       {children}
+      <Footer/>
     </div>
   );
 }
