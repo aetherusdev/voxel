@@ -44,7 +44,7 @@ function Hero() {
   const imageY = useTransform(scrollYProgress, [0, 1], ["0%", "40%"]);
   const textOpacity = useTransform(scrollYProgress, [0, 0.7], [1, 0]);
   return (
-    <section className="h-full w-full py-24">
+    <section className="h-full w-full py-24 min-h-screen ">
       <div
         ref={heroRef}
         className="flex items-center h-full pt-18 w-full justify-center mx-auto gap-12  flex-col lg:gap-16"
